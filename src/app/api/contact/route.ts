@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { contactFormSchema } from "@/lib/validations";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend: Resend | null = null;
+
+function getResend() {
+  if (!resend && process.env.RESEND_API_KEY) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 // Simple in-memory rate limiting
 const rateLimiter = new Map<string, number>();
@@ -35,7 +42,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    const { error } = await resend.emails.send({
+    const { error } = await getResend()!.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: process.env.EMAIL_TO || "ahteshamsiddiqui5900@gmail.com",
       subject: `New Contact from ${validatedData.name}`,
