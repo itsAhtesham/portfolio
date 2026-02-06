@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ahteshamsiddiqui.com/sitemap.xml
+Sitemap: https://ahtesham-siddiqui.in/sitemap.xml
