@@ -132,5 +132,5 @@ MIT License - feel free to use this for your own portfolio!
 
 **Ahtesham Mohammad Siddiqui**
 - Email: ahteshamsiddiqui5900@gmail.com
-- LinkedIn: [ahtesham-siddiqui](https://linkedin.com/in/ahtesham-siddiqui)
-- GitHub: [ahtesham-siddiqui](https://github.com/ahtesham-siddiqui)
+- LinkedIn: [ahtesham-siddiqui](https://linkedin.com/in/ahtesham-siddiqui-388aa3220)
+- GitHub: [ahtesham-siddiqui](https://github.com/itsAhtesham)
