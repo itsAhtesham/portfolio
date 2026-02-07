@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const { error } = await getResend()!.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from: "Portfolio Contact <noreply@ahtesham-siddiqui.in>",
       to: process.env.EMAIL_TO || "ahteshamsiddiqui5900@gmail.com",
       subject: `New Contact from ${validatedData.name}`,
       html: `
