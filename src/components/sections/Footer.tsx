@@ -1,13 +1,8 @@
 "use client";
 
-import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { socialLinks } from "@/data/social";
-
-const iconMap: Record<string, React.ElementType> = {
-  Github,
-  Linkedin,
-  Mail,
-};
+import { socialIconMap } from "@/components/icons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,9 +14,10 @@ export function Footer() {
           &copy; {currentYear} Ahtesham Siddiqui
         </p>
 
-        <div className="flex items-center gap-5">
+        <nav aria-label="Social links" className="flex items-center gap-5">
           {socialLinks.map((link) => {
-            const Icon = iconMap[link.icon] || Mail;
+            const Icon = socialIconMap[link.icon];
+            if (!Icon) return null;
             return (
               <a
                 key={link.name}
@@ -35,7 +31,7 @@ export function Footer() {
               </a>
             );
           })}
-        </div>
+        </nav>
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

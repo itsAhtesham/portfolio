@@ -4,19 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, Github, Linkedin, Mail } from "lucide-react";
+import { Send } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { contactFormSchema, ContactFormData } from "@/lib/validations";
 import { socialLinks } from "@/data/social";
-import { LeetCodeIcon } from "@/components/icons";
+import { socialIconMap } from "@/components/icons";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
-
-const iconMap: Record<string, React.ElementType> = {
-  Github,
-  Linkedin,
-  Mail,
-  Leetcode: LeetCodeIcon,
-};
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -95,15 +88,17 @@ export function Contact() {
         >
           {/* Name */}
           <motion.div variants={staggerItem} className="relative">
+            <label htmlFor="name" className="sr-only">Your Name</label>
             <input
               type="text"
               id="name"
               placeholder="Your Name"
+              aria-describedby={errors.name ? "name-error" : undefined}
               className="w-full bg-transparent border-0 border-b-2 border-border focus:border-accent text-lg md:text-xl pb-4 outline-none transition-colors duration-300 placeholder:text-foreground-muted/50"
               {...register("name")}
             />
             {errors.name && (
-              <p className="text-red-400 text-xs mt-2 font-mono">
+              <p id="name-error" role="alert" className="text-red-400 text-xs mt-2 font-mono">
                 {errors.name.message}
               </p>
             )}
@@ -111,15 +106,17 @@ export function Contact() {
 
           {/* Email */}
           <motion.div variants={staggerItem} className="relative">
+            <label htmlFor="email" className="sr-only">Email Address</label>
             <input
               type="email"
               id="email"
               placeholder="your@email.com"
+              aria-describedby={errors.email ? "email-error" : undefined}
               className="w-full bg-transparent border-0 border-b-2 border-border focus:border-accent text-lg md:text-xl pb-4 outline-none transition-colors duration-300 placeholder:text-foreground-muted/50"
               {...register("email")}
             />
             {errors.email && (
-              <p className="text-red-400 text-xs mt-2 font-mono">
+              <p id="email-error" role="alert" className="text-red-400 text-xs mt-2 font-mono">
                 {errors.email.message}
               </p>
             )}
@@ -127,15 +124,17 @@ export function Contact() {
 
           {/* Message */}
           <motion.div variants={staggerItem} className="relative">
+            <label htmlFor="message" className="sr-only">Message</label>
             <textarea
               id="message"
               rows={4}
               placeholder="Tell me about your project..."
+              aria-describedby={errors.message ? "message-error" : undefined}
               className="w-full bg-transparent border-0 border-b-2 border-border focus:border-accent text-lg md:text-xl pb-4 outline-none transition-colors duration-300 resize-none placeholder:text-foreground-muted/50"
               {...register("message")}
             />
             {errors.message && (
-              <p className="text-red-400 text-xs mt-2 font-mono">
+              <p id="message-error" role="alert" className="text-red-400 text-xs mt-2 font-mono">
                 {errors.message.message}
               </p>
             )}
@@ -169,7 +168,7 @@ export function Contact() {
           viewport={{ once: true }}
         >
           {socialLinks.map((link) => {
-            const Icon = iconMap[link.icon];
+            const Icon = socialIconMap[link.icon];
             return (
               <a
                 key={link.name}

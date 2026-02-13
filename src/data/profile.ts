@@ -22,5 +22,4 @@ export const stats = [
   { label: "Years Experience", value: "2+" },
   { label: "Projects Completed", value: "10+" },
   { label: "Technologies", value: "20+" },
-  { label: "Messages Processed Daily", value: "60K+" },
 ];

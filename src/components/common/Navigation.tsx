@@ -33,6 +33,7 @@ export function Navigation() {
         transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <nav
+          aria-label="Main navigation"
           className={cn(
             "flex items-center gap-4 md:gap-6 px-5 md:px-7 py-3 rounded-full transition-all duration-500",
             isScrolled

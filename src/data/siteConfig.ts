@@ -1,0 +1,33 @@
+export const siteConfig = {
+  name: "Ahtesham Siddiqui",
+  fullName: "Ahtesham Mohammad Siddiqui",
+  title: "Ahtesham Siddiqui | Software Developer",
+  description:
+    "Software Developer building scalable backend systems with Node.js, NestJS, React, and Google Cloud Platform.",
+  url: "https://ahtesham-siddiqui.in",
+  locale: "en_US",
+  keywords: [
+    "Software Developer",
+    "Full Stack Developer",
+    "Node.js",
+    "NestJS",
+    "NextJS",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "PostgreSQL",
+    "MongoDB",
+    "Google Cloud Platform",
+    "Backend Developer",
+    "Web Developer",
+    "Ahtesham Siddiqui",
+    "Ahtesham Mohammad Siddiqui",
+  ],
+  social: {
+    github: "https://github.com/itsAhtesham",
+    linkedin: "https://linkedin.com/in/ahtesham-siddiqui-388aa3220",
+    email: "ahteshamsiddiqui5900@gmail.com",
+    leetcode: "https://leetcode.com/its_Ahtesham/",
+  },
+} as const;

@@ -6,19 +6,12 @@ import { SplitText } from "@/components/animations/SplitText";
 import { profile } from "@/data/profile";
 import { socialLinks } from "@/data/social";
 import { fadeInUp, easings } from "@/lib/animations";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import { LeetCodeIcon } from "@/components/icons";
+import { ArrowDown } from "lucide-react";
+import { socialIconMap } from "@/components/icons";
 
 const Scene = dynamic(() => import("@/components/3d/Scene").then((mod) => mod.Scene), {
   ssr: false,
 });
-
-const iconMap: Record<string, React.ElementType> = {
-  Github,
-  Linkedin,
-  Mail,
-  Leetcode: LeetCodeIcon,
-};
 
 export function Hero() {
   const firstName = profile.name.split(" ")[0];
@@ -111,7 +104,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.8 }}
         >
           {socialLinks.map((link) => {
-            const Icon = iconMap[link.icon] || Mail;
+            const Icon = socialIconMap[link.icon];
+            if (!Icon) return null;
             return (
               <a
                 key={link.name}
